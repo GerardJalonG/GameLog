@@ -1,8 +1,10 @@
-//
-//  Game.swift
-//  GameLog
-//
-//  Created by Gerard Jalon on 5/12/25.
-//
-
 import Foundation
+
+struct Game: Identifiable {
+    let id: UUID
+    let title: String
+    let platform: String
+    let year: Int
+    let coverURL: URL?
+    let averageRating: Double
+}

@@ -1,22 +1,22 @@
 
 import SwiftUI
-
 struct GamePosterView: View {
-    
-    let game: Game
+    let game: GameGridItem
+
     var body: some View {
-        VStack(alignment: .leading)
-        {
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.gray.opacity(0.3))
-                Text(game.title)
+        VStack {
+            AsyncImage(url: URL(string: game.backgroundImage ?? "")) { image in
+                image.resizable().scaledToFill()
+            } placeholder: {
+                Color.gray.opacity(0.3)
             }
-            .aspectRatio(2/3, contentMode: .fit)
+            .frame(height: 140)
+            .clipped()
+            .cornerRadius(10)
+
+            Text(game.name)
+                .font(.caption)
+                .lineLimit(2)
         }
     }
-}
-
-#Preview {
-    GamePosterView(game: GameViewModel.defaultGame)
 }

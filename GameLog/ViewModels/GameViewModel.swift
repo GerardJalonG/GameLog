@@ -1,18 +1,24 @@
 import Foundation
 
+@MainActor
 class GameViewModel: ObservableObject {
-    @Published var games = loadMockGames()
-    
-    static func loadMockGames()->[Game]{
-        return GameViewModel.mockGames
-    }
+    @Published var games: [GameGridItem] = []
+    @Published var isLoading = false
+    @Published var errorMessage: String?
 
-    static var mockGames = [
-            Game(id: UUID(), title: "The Witcher 3", platform: "PC", year: 2015, coverURL: nil, averageRating: 4.8),
-            Game(id: UUID(), title: "Hades", platform: "Switch", year: 2020, coverURL: nil, averageRating: 4.6),
-            Game(id: UUID(), title: "Elden Ring", platform: "PS5", year: 2022, coverURL: nil, averageRating: 4.9)
-    ]
-    
-    static var defaultGame = Game(id: UUID(), title: "The Witcher 3", platform: "PC", year: 2015, coverURL: nil, averageRating: 4.8)
-    
+    private let service = RAWGService()
+
+    func loadGames() async {
+        isLoading = true
+        errorMessage = nil
+
+        do {
+            let result = try await service.fetchGames(pageSize: 21)
+            self.games = result
+        } catch {
+            self.errorMessage = error.localizedDescription
+        }
+
+        isLoading = false
+    }
 }

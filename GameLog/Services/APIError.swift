@@ -2,23 +2,20 @@ import Foundation
 
 enum APIError: LocalizedError {
     case invalidURL
-    case urlSessionError(Error)
     case invalidResponse
-    case noData
+    case missingAPIKey
     case decodingFailed(Error)
 
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return "The URL is invalid"
+            return "Invalid URL"
         case .invalidResponse:
             return "Invalid response from server"
-        case .noData:
-            return "No data received from server"
-        case .urlSessionError(let error):
-            return "Network error: \(error.localizedDescription)"
-        case .decodingFailed(let error):
-            return "Failed to decode response: \(error.localizedDescription)"
+        case .missingAPIKey:
+            return "Missing API key in Info.plist"
+        case .decodingFailed(let err):
+            return "Failed to decode: \(err.localizedDescription)"
         }
     }
 }

@@ -6,17 +6,17 @@ struct GamePosterView: View {
     var body: some View {
         VStack {
             AsyncImage(url: URL(string: game.backgroundImage ?? "")) { image in
-                image.resizable().scaledToFill()
-            } placeholder: {
-                Color.gray.opacity(0.3)
-            }
-            .frame(height: 140)
-            .clipped()
-            .cornerRadius(10)
-
-            Text(game.name)
-                .font(.caption)
-                .lineLimit(2)
+                           image
+                               .resizable()
+                               .scaledToFill()
+                               .frame(width: 110, height: 160)
+                               .clipped()
+                               .cornerRadius(12)
+                       } placeholder: {
+                           RoundedRectangle(cornerRadius: 12)
+                               .fill(.gray.opacity(0.3))
+                               .frame(width: 110, height: 160)
+                       }
         }
     }
 }

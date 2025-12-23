@@ -10,6 +10,7 @@ struct GameGridView: View {
     ]
 
     var body: some View {
+        Text("Game List").font(.largeTitle)
         ScrollView {
             if vm.isLoading {
                 ProgressView("Cargando…")

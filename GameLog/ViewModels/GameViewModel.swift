@@ -13,7 +13,7 @@ class GameViewModel: ObservableObject {
         errorMessage = nil
 
         do {
-            let result = try await service.fetchGames(pageSize: 21)
+            let result = try await service.fetchGames(pageSize: 12)
             self.games = result
         } catch {
             self.errorMessage = error.localizedDescription

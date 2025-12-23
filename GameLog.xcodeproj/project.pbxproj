@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		697F556C2EFAA2720080FEF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 697F556B2EFAA2720080FEF6 /* Config.xcconfig */; };
 		69AA06912EE304D4003CD0EA /* GameLogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA06902EE304D4003CD0EA /* GameLogApp.swift */; };
 		69AA06932EE304D4003CD0EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AA06922EE304D4003CD0EA /* ContentView.swift */; };
 		69AA06952EE304D9003CD0EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69AA06942EE304D9003CD0EA /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		697F556B2EFAA2720080FEF6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		69AA068D2EE304D3003CD0EA /* GameLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AA06902EE304D4003CD0EA /* GameLogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogApp.swift; sourceTree = "<group>"; };
 		69AA06922EE304D4003CD0EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				69AA06922EE304D4003CD0EA /* ContentView.swift */,
 				69AA06942EE304D9003CD0EA /* Assets.xcassets */,
 				69AA06962EE304D9003CD0EA /* Preview Content */,
+				697F556B2EFAA2720080FEF6 /* Config.xcconfig */,
 			);
 			path = GameLog;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69AA06982EE304D9003CD0EA /* Preview Assets.xcassets in Resources */,
+				697F556C2EFAA2720080FEF6 /* Config.xcconfig in Resources */,
 				69AA06952EE304D9003CD0EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +207,7 @@
 /* Begin XCBuildConfiguration section */
 		69AA06992EE304D9003CD0EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 697F556B2EFAA2720080FEF6 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -266,6 +271,7 @@
 		};
 		69AA069A2EE304D9003CD0EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 697F556B2EFAA2720080FEF6 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -322,12 +328,14 @@
 		};
 		69AA069C2EE304D9003CD0EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 697F556B2EFAA2720080FEF6 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameLog/Preview Content\"";
+				DEVELOPMENT_TEAM = 35PKLDU248;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -350,12 +358,14 @@
 		};
 		69AA069D2EE304D9003CD0EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 697F556B2EFAA2720080FEF6 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GameLog/Preview Content\"";
+				DEVELOPMENT_TEAM = 35PKLDU248;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

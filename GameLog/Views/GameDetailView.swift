@@ -28,7 +28,6 @@ struct GameDetailView: View {
                             .fill(.gray.opacity(0.3))
                             .frame(height: 240)
                     }
-
                     HStack {
                         Text(game.name)
                             .font(.title)

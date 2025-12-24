@@ -11,7 +11,7 @@ import SwiftUI
 struct GameLogApp: App {
     var body: some Scene {
         WindowGroup {
-            GameGridView()
+            HorizontalCarrousel()
         }
     }
 }

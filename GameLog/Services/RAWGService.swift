@@ -36,9 +36,8 @@ struct RAWGService {
             throw APIError.missingAPIKey
         }
         
-        var components = URLComponents(string: "\(baseURL)/games")!
+        var components = URLComponents(string: "\(baseURL)/games/\(id)")!
         components.queryItems = [
-            URLQueryItem(name: "id", value: "\(id)"),
             URLQueryItem(name: "key", value: apiKey)
         ]
         

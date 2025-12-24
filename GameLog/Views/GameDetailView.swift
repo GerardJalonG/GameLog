@@ -2,35 +2,49 @@ import SwiftUI
 
 struct GameDetailView: View {
     @StateObject private var vm: GameDetailViewModel
-
+    
     init(gameID: Int) {
         _vm = StateObject(wrappedValue: GameDetailViewModel(gameID: gameID))
     }
     
+    init(mockGame: GameDetail) {
+        let vm = GameDetailViewModel(gameID: mockGame.id)
+        vm.game = mockGame
+        _vm = StateObject(wrappedValue: vm)
+    }
+    
     var body: some View {
-        if let game = vm.game {
-            VStack{
-                AsyncImage(url: URL(string: game.backgroundImage)) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 240)
-                        .clipped()
-                } placeholder: {
-                    Rectangle()
-                        .fill(.gray.opacity(0.3))
-                        .frame(height: 240)
+        Group {
+            if let game = vm.game {
+                VStack {
+                    AsyncImage(url: URL(string: game.backgroundImage)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 240)
+                            .clipped()
+                    } placeholder: {
+                        Rectangle()
+                            .fill(.gray.opacity(0.3))
+                            .frame(height: 240)
+                    }
+
+                    HStack {
+                        Text(game.name)
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                    }
+                    .padding()
                 }
-                
-                HStack{
-                    Text(game.name)
-                        .font(.title)
-                        .bold()
-                }
+            } else if vm.isLoading {
+                ProgressView("Cargando…")
+                    .padding()
+            } else if let error = vm.errorMessage {
+                Text(error).foregroundStyle(.red)
             }
-            .task {
-                await vm.loadGame()
-            }
+        }.task {
+            await vm.loadGame()
         }
     }
 }
@@ -55,5 +69,7 @@ let mockGTADetail = GameDetail(
 
 
 #Preview {
-    GameDetailView(gameID: 3498)
+    NavigationStack {
+        GameDetailView(mockGame: mockGTADetail)
+    }
 }

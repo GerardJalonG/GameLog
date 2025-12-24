@@ -10,7 +10,6 @@ struct GameGridView: View {
     ]
 
     var body: some View {
-        Text("Game List").font(.largeTitle)
         NavigationStack {
             ScrollView {
                 if vm.isLoading {
@@ -26,7 +25,9 @@ struct GameGridView: View {
                 } else {
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(vm.games) { game in
-                            GamePosterView(game: game)
+                            NavigationLink(destination: GameDetailView(gameID: game.id)) {
+                                GamePosterView(game: game)
+                            }
                         }
                     }
                     .padding()
@@ -43,7 +44,7 @@ private let mockGTA: GameGridItem = .init(
     id: 3498,
     name: "Grand Theft Auto V",
     backgroundImage: "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg",
-    rating: 4.47
+    rating: 4.5
 )
 
 
